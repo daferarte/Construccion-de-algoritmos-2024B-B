@@ -3,7 +3,7 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "daniel.arteagafajar@campusucc.edu.co"
 
-from Fecha import Fecha
+from .Fecha import Fecha
 
 class Empleado:
     # Aquí inicia la declaracion de la clase
@@ -32,6 +32,17 @@ class Empleado:
     '''#----------------------------------------------------------------
     # Metodos 
     -----------------------------------------------------------------#'''
+    
+    __method__ = "Constructor"
+    __parameter__ = "nombre, apellido, salario, sexo"
+    __returns__ = "Ninguna"
+    __Description__ = " metodo constructor de la clase"
+    def __init__(self, nombre, apellido, salario: float, sexo: int):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.sexo = sexo
+        self.salario = salario
+        
     # Este metodo retorna el nombre del empleado
     def DarNombre(self):
         # Aqui va mi codigo
