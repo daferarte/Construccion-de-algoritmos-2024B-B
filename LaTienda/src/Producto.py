@@ -97,3 +97,42 @@ class Producto:
     def DarCantidadUnidadesVendidas(self):
         return self.__cantidadUnidadesVendidas
     
+    __method__ = "DarPublicidad"
+    __parameter__ = "Ninguno"
+    __returns__ = "Mensaje publicitario de un producto"
+    __Description__ = "Metodo que brinda publicidad sobre un producto"
+    def DarPublicidad(self):
+        #return "Compre el producto "+self.__nombre+" por solo $"+self.__valorUnitario
+        return f"Compre el producto {self.DarNombre()} por solo ${self.DarValorUnitario()}"
+    
+    __method__ = "EsIgual"
+    __parameter__ = "producto"
+    __returns__ = "True or False segun el resultado"
+    __Description__ = "Metodo que permite comparar el producto con otro ingresado por el ususario"
+    def EsIgual(self, producto):
+        return self.DarNombre() is producto
+    
+    __method__ = "Vender"
+    __parameter__ = "cantidad de producto a vender"
+    __returns__ = "Ninguno"
+    __Description__ = "Metodo que permite vender"
+    def Vender(self, cProducto):
+       self.__cantidadBodega = self.__cantidadBodega - cProducto
+       
+    __method__ = "AgregarNuevaUnidadBodega"
+    __parameter__ = "Ninguno"
+    __returns__ = "Ninguno"
+    __Description__ = "Metodo que permite agregar un producto en bodega"
+    def AgregarNuevaUnidadBodega(self):
+        
+        # self.__cantidadBodega = self.__cantidadBodega + 1
+        self.__cantidadBodega+=1
+     
+    __method__ = "Pedir"
+    __parameter__ = "Cantidad"
+    __returns__ = "Ninguno"
+    __Description__ = "Metodo que permite pedir unidades para la bodega"
+    def Pedir(self, cantidad):
+        self.__cantidadBodega += cantidad
+        # self.__cantidadBodega = self.__cantidadBodega+cantidad    
+    

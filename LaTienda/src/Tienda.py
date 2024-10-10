@@ -60,3 +60,13 @@ class Tienda:
     __Description__ = "metodo que retorna el dinero en caja"
     def DarDineroCaja(self):
         return self.__dineroCaja
+    
+    __method__ = "VenderDeTodo"
+    __parameter__ = "Ninguno"
+    __returns__ = "Ninguno"
+    __Description__ = "metodo que calcula la cantidad disponible del producto 1 y vende esa cantidad de los demas"
+    def VenderDeTodo(self):
+        cuanto = self.__producto1.DarCantidadBodega()
+        self.__producto2.Vender(cuanto)
+        self.__producto3.Vender(cuanto)
+        self.__producto4.Vender(cuanto)
