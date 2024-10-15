@@ -3,6 +3,8 @@ __license__ = "GPL"
 __version__ = "1.0.0"
 __email__ = "daniel.arteagafajar@campusucc.edu.co"
 
+from Producto import Producto
+from Tipos import Tipo
 class Tienda:
     
     """----------------------------------------------------------------
@@ -26,6 +28,23 @@ class Tienda:
     """----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------"""
+    __method__ = "ProductoUno"
+    __parameter__ = "nombre, tipo, valorUnitario, cantidad, cantidadMinima, subsidiado, calidad"
+    __returns__ = "Ninguno"
+    __Description__ = "metodo que agrega el producto uno"
+    def ProductoUno(self, nombre, tipo, valorUnitario, cantidad, cantidadMinima, subsidiado, calidad):
+        self.__producto1 = Producto(nombre, tipo, valorUnitario, cantidad, cantidadMinima, subsidiado, calidad)
+    
+    __method__ = "AbastecerTienda"
+    __parameter__ = "ninguno"
+    __returns__ = "Ninguno"
+    __Description__ = "metodo que abastece de cuatro productos la tienda"
+    def AbastecerTienda(self):
+        self.__producto1 = Producto("lapiz", Tipo.PAPELERIA, 1000, 20, 5, False, 'A')
+        self.__producto2 = Producto("Aspirina", Tipo.DOGUERIA, 800, 50, 2, True, 'A')
+        self.__producto3 = Producto("Borrador", Tipo.PAPELERIA, 700, 80, 10, False, 'A')
+        self.__producto4 = Producto("Pan", Tipo.SUPERMERCADO, 300, 50, 4, False, 'A')
+    
     __method__ = "DarProducto1"
     __parameter__ = "Ninguno"
     __returns__ = "Producto1"
@@ -70,3 +89,6 @@ class Tienda:
         self.__producto2.Vender(cuanto)
         self.__producto3.Vender(cuanto)
         self.__producto4.Vender(cuanto)
+        
+    
+        

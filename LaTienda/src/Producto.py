@@ -116,8 +116,13 @@ class Producto:
     __parameter__ = "cantidad de producto a vender"
     __returns__ = "Ninguno"
     __Description__ = "Metodo que permite vender"
-    def Vender(self, cProducto):
-       self.__cantidadBodega = self.__cantidadBodega - cProducto
+    def Vender(self, cProducto:int):
+        if cProducto > self.DarCantidadBodega():
+            self.__cantidadUnidadesVendidas += self.DarCantidadBodega()
+            self.__cantidadBodega = 0
+        else:
+            self.__cantidadUnidadesVendidas += cProducto
+            self.__cantidadBodega -= cProducto
        
     __method__ = "AgregarNuevaUnidadBodega"
     __parameter__ = "Ninguno"
@@ -135,4 +140,79 @@ class Producto:
     def Pedir(self, cantidad):
         self.__cantidadBodega += cantidad
         # self.__cantidadBodega = self.__cantidadBodega+cantidad    
+        
+    def HaySuficiente(self, cProducto):
+        # Forma 1
+        # suficiente = False
+        
+        # if(cProducto <= self.DarCantidadBodega()):
+        #     suficiente = True
+        # else:
+        #     suficiente = False
+        
+        # return suficiente
     
+        # # Forma 2
+        # suficiente = False
+        
+        # if(cProducto <= self.DarCantidadBodega()):
+        #     suficiente = True
+        
+        # return suficiente
+    
+        # Forma 3
+        # if(cProducto <= self.DarCantidadBodega()):
+        #     return True
+        # else:
+        #     return False
+        
+        # forma 4
+        return cProducto <= self.DarCantidadBodega()
+    
+    
+    __method__ = "DarPrecioPapeleria"
+    __parameter__ = "conIva"
+    __returns__ = "precio final"
+    __Description__ = "metodo que calcula el precio final de papeleria con iva o sin iva"
+    def DarPrecioPapeleria(self, conIva:bool):
+        
+        precioFinal = self.DarValorUnitario()
+        
+        if(conIva):
+            precioFinal = precioFinal * (1 + self.IVA_PAPELERIA)
+        
+        return precioFinal
+    
+    __method__ = "AjustarPrecio"
+    __parameter__ = "Ninguno"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que permite ajustar el precio si no se han vendido 100 unidades"
+    def AjustarPrecio(self):
+        
+        if(self.DarCantidadUnidadesVendidas() < 100):
+            self.__valorUnitario = self.__valorUnitario * 80 / 100
+        else:
+            self.__valorUnitario = self.__valorUnitario * 1.1
+            
+        
+    __method__ = "DarIva"
+    __parameter__ = "Ninguno"
+    __returns__ = "iva"
+    __Description__ = "metodo que permite retornar el iva segun su tipo"
+    def DarIva(self):
+        #forma 1
+        # iva = 0
+        # if self.DarTIpo() == Tipo.PAPELERIA:
+        #     iva = self.IVA_PAPELERIA
+        # elif self.DarTIpo() == Tipo.DOGUERIA:
+        #     iva = self.IVA_FARMACIA
+        # else:
+        #     iva = self.IVA_SUPERMERCADO
+        #Forma 2
+        if self.DarTIpo() == Tipo.PAPELERIA:
+            return self.IVA_PAPELERIA
+        elif self.DarTIpo() == Tipo.DOGUERIA:
+            return self.IVA_FARMACIA
+        else:
+            return self.IVA_SUPERMERCADO
+        
