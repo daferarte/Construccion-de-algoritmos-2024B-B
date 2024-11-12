@@ -45,6 +45,47 @@ class Producto:
     """----------------------------------------------------------------
     # Metodos
     ----------------------------------------------------------------"""
+    __method__ = "CambiarNombre"
+    __parameter__ = "nombre"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia el nombre"
+    def CambiarNombre(self, nombre):
+        self.__nombre = nombre
+    
+    __method__ = "CambiarTipo"
+    __parameter__ = "tipo"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia el Tipo de la clase"
+    def CambiarTipo(self, tipo):
+        self.__tipo = tipo
+        
+    __method__ = "CambiarValorUnitario"
+    __parameter__ = "valorUnitario"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia el Valor unitario de la clase"
+    def CambiarValorUnitario(self, valorUnitario):
+        self.__valorUnitario = valorUnitario
+    
+    __method__ = "CambiarCantidadBodega"
+    __parameter__ = "cantidadBodega"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia la cantidad Bodega de la clase"
+    def CambiarCantidadBodega(self, cantidadBodega):
+        self.__cantidadBodega = cantidadBodega
+    
+    __method__ = "CambiarCantidadMinima"
+    __parameter__ = "cantidadMinima"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia la cantidad Minima de la clase"
+    def CambiarCantidadMinima(self, cantidadMinima):
+        self.__cantidadMinima = cantidadMinima
+    
+    __method__ = "CambiarCantidadUnidadesVendidas"
+    __parameter__ = "cantidadUnidadesVendidas"
+    __returns__ = "Ninguna"
+    __Description__ = "metodo que cambia la cantidad Unidades Vendidas de la clase"
+    def CambiarCantidadUnidadesVendidas(self, cantidadUnidadesVendidas):
+        self.__cantidadUnidadesVendidas = cantidadUnidadesVendidas
     
     __method__ = "CalcularPrecioPapeleria"
     __parameter__ = "Ninguno"
@@ -190,9 +231,9 @@ class Producto:
     def AjustarPrecio(self):
         
         if(self.DarCantidadUnidadesVendidas() < 100):
-            self.__valorUnitario = self.__valorUnitario * 80 / 100
+            self.CambiarValorUnitario(self.DarValorUnitario() * 80 / 100) 
         else:
-            self.__valorUnitario = self.__valorUnitario * 1.1
+            self.CambiarValorUnitario(self.DarValorUnitario() * 1.1)
             
         
     __method__ = "DarIva"
